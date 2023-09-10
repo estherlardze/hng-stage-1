@@ -9,7 +9,10 @@ h1{
 }
 .github-url a{
   text-decoration: none;
-  color: black;
+  color: #fff;
+  background-color: rgb(15, 101, 220);
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 #personal-data img{
     width: 200px;
