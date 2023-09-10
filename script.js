@@ -1,16 +1,16 @@
-const slackToken = process.env.SLACK_TOKEN;
+const slackToken = "xoxb-5525350307635-5858681611255-kWRedPv7AejlYc2zFx2ufxWO";
 const userId = 'U05R7U8LV2A';
 
 const apiUrl = `https://slack.com/api/users.info?user=${userId}`;
 
 const fetchOptions = {
-    method: GET,
+    method: 'GET',
     headers: {
       Authorization: `Bearer ${slackToken}`,
     },
 };
 
-fetch(apiUrl, axiosConfig)
+fetch(apiUrl, fetchOptions)
   .then((response) => {
     if (response.ok) {
       return response.json()
@@ -24,7 +24,7 @@ fetch(apiUrl, axiosConfig)
      console.log(`Email: ${userData.profile.email}`)
   })
   .catch((err) => {
-    comsole.log(`Error: ${err}`)
+    console.log(`Error: ${err}`)
   });
 
     
