@@ -38,7 +38,7 @@ fetch(apiUrl, fetchOptions)
             const currentUTCTime = now.getTime();
 
             currentDayOfTheWeekElement.textContent = `Current Day of the Week: ${currentDayOfWeek}`;
-            utcTimeElement.textContent = `Current UTC Time: ${currentUTCTime} milliseconds`;
+            utcTimeElement.textContent = `Current UTC Time: ${currentUTCTime}`;
         }
 
        
