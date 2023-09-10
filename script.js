@@ -1,4 +1,32 @@
-//  const axios = require('axios');
+const slackToken = process.env.SLACK_TOKEN;
+const userId = 'U05R7U8LV2A';
+
+const apiUrl = `https://slack.com/api/users.info?user=${userId}`;
+
+const fetchOptions = {
+    method: GET,
+    headers: {
+      Authorization: `Bearer ${slackToken}`,
+    },
+};
+
+fetch(apiUrl, axiosConfig)
+  .then((response) => {
+    if (response.ok) {
+      return response.json()
+    } else {
+      throw new Error(`Failed to retrieve user details. Status code: ${response.status}`);
+    }
+  })
+  .then((data) => {
+     userData = data.user;
+     console.log(`User name: ${userData.profile.real_name}`);
+     console.log(`Email: ${userData.profile.email}`)
+  })
+  .catch((err) => {
+    comsole.log(`Error: ${err}`)
+  });
+
     
     function updateRealTimeData() {
             const currentDayOfTheWeekElement = document.querySelector('[data-testid="currentDayOfTheWeek"]');
@@ -13,34 +41,8 @@
             utcTimeElement.textContent = `Current UTC Time: ${currentUTCTime} milliseconds`;
         }
 
-        // Update real-time data initially and set an interval to update it every second
+       
         updateRealTimeData();
         setInterval(updateRealTimeData, 1000);
 
-// const apiToken = 'xoxe.xoxp-1-Mi0yLTU1MjUzNTAzMDc2MzUtNTg1Nzk2MDcwOTA3OC01ODk1ODQ2NTk0NTkyLTU4NTgzMTcxMjI0ODctODk1YzBiYmY5YTg1YTZmMTRmYTYzZWQ5NGYyZWM2OGRjZTY1YWM2MDI2NzMyZGVjODYyYjhkYjNhYzZjYTc5MQ'; 
-// const userIdOrName = 'T05FFAA91JP/D05REHPA3KL'; 
 
-
-// const apiUrl = 'https://slack.com/api/users.info';
-
-// // Create a request headers object with the authorization token
-// const headers = {
-//   Authorization: `Bearer ${apiToken}`,
-// };
-
-// // Create a request body object
-// const data = new URLSearchParams({
-//   user: userIdOrName,
-// });
-
-// // Make the API request using Axios
-// axios.get(apiUrl, data, { headers })
-//   .then((response) => {
-//     const userData = response.data.user;
-    
-//     // Access user information from the userData object
-//     console.log(userData);
-//   })
-//   .catch((error) => {
-//     console.error('Error:', error);
-//   });
